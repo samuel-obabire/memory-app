@@ -1,0 +1,31 @@
+.voice {
+  display: flex;
+  grid-column: span 3;
+  position: relative;
+  z-index: 1;
+}
+
+.voice .voice-text {
+  flex-basis: 90%;
+  margin: 0 auto;
+  overflow: auto;
+  padding-top: 0.2rem;
+}
+
+.voice .voice-control {
+  position: absolute;
+  bottom: -40px;
+  left: 85%;
+  color: gray;
+  text-align: justify;
+  cursor: pointer;
+}
+
+.voice .voice-text::-webkit-scrollbar {
+  display: none;
+}
+
+.voice .voice-control {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

@@ -1,0 +1,13 @@
+.header {
+  grid-column: span 3;
+  display: flex;
+  background-color: rgba(0, 12, 8, 0.897);
+  color: rgba(255, 255, 255, 0.877);
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.header .header-text {
+  font-size: 1rem;
+  /* margin-left: 4rem; */
+}

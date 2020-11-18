@@ -1,0 +1,32 @@
+.menu-wrapper {
+  margin-left: auto;
+  position: relative;
+  align-self: flex-end;
+}
+
+.menu-items {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: rgb(32, 43, 38);
+  z-index: 6;
+}
+
+.bars.icon {
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.menu-items .item {
+  border-bottom: 1px solid rgba(231, 221, 221, 0.144);
+  padding: 0.5rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  display: block;
+  color: aliceblue;
+}
+
+.menu-items.visible {
+  display: block;
+}
