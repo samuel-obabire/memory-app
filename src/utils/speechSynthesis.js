@@ -1,4 +1,4 @@
-const synth = window.speechSynthesis;
+// const synth = window.speechSynthesis;
 
 class speechSynthesis {
   // constructor() {
