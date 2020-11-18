@@ -1,8 +1,12 @@
+body {
+  min-height: 100vh;
+  min-height: --webkit-fill-available;
+}
+
 .app.container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  min-height: 100vh;
-  min-height: --webkit-fill-available;
+
   grid-template-rows: 8% 4% 1fr 10%;
   background-color: rgba(246, 243, 243, 0.349);
 }
