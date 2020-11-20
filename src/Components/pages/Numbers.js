@@ -1,7 +1,6 @@
 import { Component } from 'react';
 import Voice from '../voice/Voice';
 import Question from '../question/Question';
-import Options from '../options/Options';
 import { generateRandNum } from '../../utils/generator';
 
 class Numbers extends Component {
