@@ -1,6 +1,8 @@
 class speechSynthesis {
   static synth = window.speechSynthesis;
 
+  static getVoices = () => this.synth.getVoices();
+
   static speak(text, rate) {
     const utter = new SpeechSynthesisUtterance();
     utter.rate = rate || 0.3;
