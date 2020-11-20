@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import './Header.css';
 import Menu from '../Menu/Menu';
+import speechSynthesis from '../../utils/speechSynthesis';
 
 const Header = ({ streak, location }) => {
   const renderHeaderText = () => {
@@ -18,7 +19,15 @@ const Header = ({ streak, location }) => {
 
   return (
     <div className="header">
-      <div className="streak">{streak}</div>
+      <div
+        className="streak"
+        onClick={() => {
+          speechSynthesis.speak(
+            `You on a streak of ${streak}, ${10 - streak} more to see a video`
+          );
+        }}>
+        {streak}
+      </div>
       <div className="header-text">{renderHeaderText()}</div>
       <Menu />
     </div>
