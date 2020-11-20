@@ -1,8 +1,8 @@
 import { Component } from 'react';
-import Voice from './voice/Voice';
-import Question from './question/Question';
-import Options from './options/Options';
-import { generateRandNum } from '../utils/generator';
+import Voice from '../voice/Voice';
+import Question from '../question/Question';
+import Options from '../options/Options';
+import { generateRandNum } from '../../utils/generator';
 
 class Numbers extends Component {
   generateOptions({ insertQuestionAtIndex, questionToDisplay, max }) {
@@ -24,9 +24,10 @@ class Numbers extends Component {
 
     return {
       questionToDisplay,
-      label: 'What number comes after ',
+      label: `What number comes after ${questionToDisplay}`,
       options,
       ans: options[insertQuestionAtIndex],
+      questionType: 'numbers',
     };
   };
 
@@ -35,7 +36,6 @@ class Numbers extends Component {
       <>
         <Voice voiceText="What number comes after the one shown on the screen?" />
         <Question generateQuestion={this.generateQuestion} />
-        <Options />
       </>
     );
   }

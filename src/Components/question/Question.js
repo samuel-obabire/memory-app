@@ -1,12 +1,19 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { getQuestion } from '../../actions';
+import { getQuestion, countStreak } from '../../actions';
 import './Question.css';
 import { selectedOption } from '../../actions';
-import speechSynthesis from '../../utils/speechSynthesis';
+import Options from '../options/Options';
 
 class Question extends Component {
-  nextQuestion = () => {
+  nextQuestion = validity => {
+    if (!validity) {
+      this.props.countStreak(this.props.currStreak - 1);
+    } else {
+      this.props.countStreak(this.props.currStreak + 1);
+    }
+
+    this.props.resetOptions();
     this.props.getQuestion(this.props.generateQuestion());
   };
 
@@ -28,39 +35,28 @@ class Question extends Component {
 
   render() {
     return (
-      <div className={`question`}>
-        <div className="question-description">
-          {this.renderQuestion(this.props.question)}
+      <>
+        <div className={`question`}>
+          <div className="question-description">
+            {this.renderQuestion(this.props.question)}
+          </div>
         </div>
-        <span
-          className="next-icon"
-          onClick={() => {
-            if (
-              Object.keys(this.props.selectedOption).length === 0 ||
-              !this.props.selectedOption.right
-            ) {
-              speechSynthesis.speak(
-                'select the right option in order to continue',
-                1
-              );
-              return;
-            }
-
-            this.nextQuestion();
-            this.props.resetOptions();
-          }}>
-          <i className="arrow right icon"></i>
-        </span>
-      </div>
+        <Options onclick={this.nextQuestion} />
+      </>
     );
   }
 }
 
 const mapStateToProps = state => {
-  return { question: state.question, selectedOption: state.selectedOption };
+  return {
+    question: state.question,
+    selectedOption: state.selectedOption,
+    currStreak: state.streak,
+  };
 };
 
 export default connect(mapStateToProps, {
   getQuestion,
   resetOptions: selectedOption,
+  countStreak,
 })(Question);

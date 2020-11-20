@@ -1,7 +1,6 @@
-import Voice from './voice/Voice';
-import Question from './question/Question';
-import Options from './options/Options';
-import { generateRandNum } from '../utils/generator';
+import Voice from '../voice/Voice';
+import Question from '../question/Question';
+import { generateRandNum } from '../../utils/generator';
 
 const currencies = [
   {
@@ -78,6 +77,7 @@ const Currencies = () => {
       label: questionToDisplay.label,
       options,
       ans: options[insertQuestionAtIndex],
+      questionType: 'currency',
     };
   };
 
@@ -85,7 +85,6 @@ const Currencies = () => {
     <>
       <Voice voiceText="What note is displayed on the screen?" />
       <Question generateQuestion={generateQuestion} />
-      <Options />
     </>
   );
 };

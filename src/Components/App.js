@@ -1,8 +1,8 @@
 import { HashRouter, Route } from 'react-router-dom';
 import Header from './header/Header';
 import './App.css';
-import Numbers from './Numbers';
-import Currencies from './Currencies';
+import Numbers from './pages/Numbers';
+import Currencies from './pages/Currencies';
 
 const App = () => {
   return (

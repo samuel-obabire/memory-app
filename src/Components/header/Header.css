@@ -9,5 +9,16 @@
 
 .header .header-text {
   font-size: 1rem;
-  /* margin-left: 4rem; */
+}
+
+.header .streak {
+  padding: 1rem;
+  border: 2px solid gray;
+  border-radius: 50%;
+  height: 1rem;
+  width: 1rem;
+  margin-right: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

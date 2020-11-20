@@ -4,9 +4,6 @@ export const generateRandNum = (max, except = null) => {
   if (n !== except) {
     return n;
   } else {
-    alert('running again', n);
-    const nn = generateRandNum(max, except);
-    console.log(nn);
-    return nn;
+    return generateRandNum(max, except);
   }
 };

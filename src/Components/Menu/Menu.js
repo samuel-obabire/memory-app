@@ -8,10 +8,10 @@ import { selectedOption } from '../../actions';
 const options = [
   { label: 'Numbers', path: '/' },
   { label: 'Currencies', path: '/learn/nigeria/notes' },
-  { label: 'Arithemetics', path: '/' },
+  { label: 'Mathematics', path: '/learn-mathematics' },
 ];
 
-const Menu = ({ resetOption }) => {
+const Menu = () => {
   const [itemsVisibility, setItemsVisibility] = useState(false);
 
   useEffect(() => {
@@ -31,7 +31,6 @@ const Menu = ({ resetOption }) => {
       to={option.path}
       className="item"
       onClick={() => {
-        // resetOption();
         setItemsVisibility(false);
       }}
       key={option.label}>

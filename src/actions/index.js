@@ -44,3 +44,10 @@ export const setVoices = voices => {
     payload: voices,
   };
 };
+
+export const countStreak = streak => {
+  return {
+    type: 'COUNT_STREAK',
+    payload: streak < 0 ? 0 : streak,
+  };
+};

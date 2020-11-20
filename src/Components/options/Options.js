@@ -1,54 +1,43 @@
 import { connect } from 'react-redux';
 import './Options.css';
-import { selectedOption } from '../../actions';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
-const Options = ({ question, selected, selectedOption }) => {
+const Options = ({ question, onclick }) => {
   const audioRef1 = useRef(null),
     audioRef2 = useRef(null);
 
-  useEffect(() => {
-    return () => {
-      selectedOption();
-    };
-  }, [selectedOption]);
-
   const playNotificationSound = selectedIndex => {
-    switch (selectedIndex) {
-      case 'wrong':
+    switch (true) {
+      case selectedIndex === false:
         if (!audioRef1.current) return;
         if (audioRef1.current.currentTime > 0) {
           audioRef1.current.currentTime = 0;
           audioRef1.current.pause();
         }
         audioRef1.current.play();
+
+        onclick(selectedIndex);
         break;
 
-      case 'right':
+      case selectedIndex === true:
         audioRef2.current && audioRef2.current.play();
+
+        onclick(selectedIndex);
         break;
       default:
         return;
     }
   };
 
-  const renderedOptions = question?.options?.map((option, index) => {
-    // how to make sure a text is not selectable
-    const selectedIndex =
-      selected.index === index && selected.right
-        ? 'right'
-        : selected.index === index && !selected.right
-        ? 'wrong'
-        : '';
-
-    playNotificationSound(selectedIndex);
-
+  const renderedOptions = question?.options?.map(option => {
     return (
       <div
-        className={`option ${selectedIndex}`}
+        className={`option`}
         onClick={() => {
-          if (selected.index === index) return;
-          selectedOption({ index, option });
+          const validity = option === question.ans ? true : false;
+
+          playNotificationSound(validity);
+          onclick(validity);
         }}
         key={option * Math.random()}>
         {option}
@@ -69,7 +58,7 @@ const Options = ({ question, selected, selectedOption }) => {
 };
 
 const mapStateToProps = state => {
-  return { question: state.question, selected: state.selectedOption };
+  return { question: state.question };
 };
 
-export default connect(mapStateToProps, { selectedOption })(Options);
+export default connect(mapStateToProps)(Options);
