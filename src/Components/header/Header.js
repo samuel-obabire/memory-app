@@ -34,7 +34,7 @@ const Header = ({ streak, location, history }) => {
         {renderHeaderText()}
       </div>
       <i
-        class="home icon"
+        className="home icon"
         style={{ marginLeft: 'auto', fontSize: '1.2rem' }}
         onClick={() => history.push(`/`)}></i>
       <Menu />

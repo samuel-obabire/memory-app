@@ -64,17 +64,13 @@ const Currencies = () => {
     const questionToDisplay = currencies[generateRandNum(max)];
     const insertQuestionAtIndex = generateRandNum(4);
 
-    currencies
-      .filter(currency => currency.label !== questionToDisplay.label)
-      .map(currency => currency.value);
-
     const options = generateOptions({
       insertQuestionAtIndex,
       questionToDisplay,
       max,
       options: currencies
         .filter(currency => currency.label !== questionToDisplay.label)
-        .map(currency => currency.value),
+        .map(currency => currency.label),
     });
 
     return {

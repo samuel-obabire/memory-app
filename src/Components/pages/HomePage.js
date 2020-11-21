@@ -5,7 +5,7 @@ const HomePage = ({ sections }) => {
     return sections.map(({ header, description, path }) => {
       return (
         <Link to={path} className="item" key={header}>
-          <i class="large github middle aligned icon"></i>
+          <i className="large github middle aligned icon"></i>
           <div className="content">
             <div
               style={{

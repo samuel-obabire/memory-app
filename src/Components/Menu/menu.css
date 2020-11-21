@@ -1,7 +1,6 @@
 .menu-wrapper {
   margin-left: auto;
   position: relative;
-  /* align-self: flex-end; */
 }
 
 .menu-items {
@@ -9,7 +8,7 @@
   position: absolute;
   right: 0;
   top: 100%;
-  background-color: rgb(32, 43, 38);
+  background-color: rgb(0, 12, 8);
   z-index: 6;
 }
 
