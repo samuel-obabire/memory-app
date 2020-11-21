@@ -54,7 +54,7 @@ const Currencies = () => {
     const opts = [...options];
 
     return Array.from({ length: 4 }, (_, index) => {
-      if (insertQuestionAtIndex === index) return questionToDisplay.value;
+      if (insertQuestionAtIndex === index) return questionToDisplay.label;
 
       return opts.splice(generateRandNum(opts.length - 1), 1);
     });
