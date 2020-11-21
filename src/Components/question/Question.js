@@ -7,9 +7,11 @@ import Options from '../options/Options';
 import Loader from '../loader/Loader';
 
 class Question extends Component {
-  state = { loading: true };
+  state = { loading: false };
 
   nextQuestion = validity => {
+    this.setState({ loading: true });
+
     if (!validity) {
       this.props.countStreak(this.props.currStreak - 1);
     } else {
