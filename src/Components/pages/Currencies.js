@@ -40,7 +40,7 @@ const currencies = [
   },
   {
     label: '1000 Naira',
-    src: '/asset/naira-notes/500.jpg',
+    src: '/asset/naira-notes/1000.jpg',
     value: 1000,
   },
 ];
@@ -60,7 +60,7 @@ const Currencies = () => {
     });
   };
 
-  const generateQuestion = (max = 7) => {
+  const generateQuestion = (max = 8) => {
     const questionToDisplay = currencies[generateRandNum(max)];
     const insertQuestionAtIndex = generateRandNum(4);
 
