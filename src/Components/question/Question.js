@@ -4,8 +4,11 @@ import { getQuestion, countStreak } from '../../actions';
 import './Question.css';
 import { selectedOption } from '../../actions';
 import Options from '../options/Options';
+import Loader from '../loader/Loader';
 
 class Question extends Component {
+  state = { loading: true };
+
   nextQuestion = validity => {
     if (!validity) {
       this.props.countStreak(this.props.currStreak - 1);
@@ -23,12 +26,21 @@ class Question extends Component {
 
   renderQuestion(question) {
     if (!question.questionToDisplay) return null;
-    if (question.questionToDisplay.type === 'image')
+    if (question.questionToDisplay.type === 'image') {
       return (
         <div className="image-wrapper">
-          <img src={`${question.questionToDisplay.src}`} alt="" />
+          {this.state.loading ? <Loader /> : null}
+          <img
+            onLoad={() => {
+              console.log('loaded');
+              this.setState({ loading: false });
+            }}
+            src={`${question.questionToDisplay.src}`}
+            alt=""
+          />
         </div>
       );
+    }
 
     return question.questionToDisplay;
   }
