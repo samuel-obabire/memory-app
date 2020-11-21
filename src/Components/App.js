@@ -1,4 +1,4 @@
-import { MemoryRouter, Route } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 
 import './App.css';
 import Header from './header/Header';
@@ -30,11 +30,11 @@ const App = () => {
 
   return (
     <div className="app container">
-      <MemoryRouter>
+      <HashRouter>
         <Header />
         <Route path="/" exact component={Numbers} />
         <Route path="/learn/nigeria/notes" exact component={Currencies} />
-      </MemoryRouter>
+      </HashRouter>
     </div>
   );
 };

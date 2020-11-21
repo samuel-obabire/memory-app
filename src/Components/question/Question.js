@@ -32,7 +32,6 @@ class Question extends Component {
           {this.state.loading ? <Loader /> : null}
           <img
             onLoad={() => {
-              console.log('loaded');
               this.setState({ loading: false });
             }}
             src={`${question.questionToDisplay.src}`}
