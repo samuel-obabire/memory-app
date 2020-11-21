@@ -38,6 +38,11 @@ const currencies = [
     src: '/asset/naira-notes/500.jpg',
     value: 500,
   },
+  {
+    label: '1000 Naira',
+    src: '/asset/naira-notes/500.jpg',
+    value: 1000,
+  },
 ];
 
 const Currencies = () => {
