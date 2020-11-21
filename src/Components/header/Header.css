@@ -1,6 +1,7 @@
 .header {
   grid-column: span 3;
-  display: flex;
+  display: grid;
+  grid-template-columns: 10% 1fr 40px 10%;
   background-color: rgba(0, 12, 8, 0.897);
   color: rgba(255, 255, 255, 0.877);
   align-items: center;
@@ -16,8 +17,8 @@
   padding: 1rem;
   border: 2px solid gray;
   border-radius: 50%;
-  height: 1rem;
-  width: 1rem;
+  height: 0.4rem;
+  width: 0.8rem;
   margin-right: 10%;
   display: flex;
   justify-content: center;

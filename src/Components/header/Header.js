@@ -30,7 +30,9 @@ const Header = ({ streak, location, history }) => {
         }}>
         {streak}
       </div>
-      <div className="header-text">{renderHeaderText()}</div>
+      <div className="header-text" style={{ textAlign: 'center' }}>
+        {renderHeaderText()}
+      </div>
       <i
         class="home icon"
         style={{ marginLeft: 'auto', fontSize: '1.2rem' }}

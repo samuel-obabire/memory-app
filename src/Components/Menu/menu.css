@@ -30,3 +30,7 @@
 .menu-items.visible {
   display: block;
 }
+
+.menu-wrapper i {
+  vertical-align: middle;
+}
