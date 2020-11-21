@@ -4,12 +4,7 @@ import { useEffect, useState } from 'react';
 import './menu.css';
 import { connect } from 'react-redux';
 import { selectedOption } from '../../actions';
-
-const options = [
-  { label: 'Numbers', path: '/' },
-  { label: 'Currencies', path: '/learn/nigeria/notes' },
-  { label: 'Mathematics', path: '/learn-mathematics' },
-];
+import sections from '../../utils/sections';
 
 const Menu = () => {
   const [itemsVisibility, setItemsVisibility] = useState(false);
@@ -26,15 +21,15 @@ const Menu = () => {
     return () => document.body.removeEventListener('click', onBodyClick);
   }, [itemsVisibility]);
 
-  const renderMenuItems = options.map(option => (
+  const renderMenuItems = sections.map(section => (
     <Link
-      to={option.path}
+      to={section.path}
       className="item"
       onClick={() => {
         setItemsVisibility(false);
       }}
-      key={option.label}>
-      {option.label}
+      key={section.header}>
+      {section.header}
     </Link>
   ));
 

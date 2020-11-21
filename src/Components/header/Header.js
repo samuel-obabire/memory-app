@@ -5,13 +5,15 @@ import './Header.css';
 import Menu from '../Menu/Menu';
 import speechSynthesis from '../../utils/speechSynthesis';
 
-const Header = ({ streak, location }) => {
+const Header = ({ streak, location, history }) => {
   const renderHeaderText = () => {
     switch (location.pathname) {
       case '/':
-        return 'Learn Numbers';
+        return 'Welcome Beulah!';
+      case '/learn/numbers':
+        return 'Know your numbers';
       case '/learn/nigeria/notes':
-        return 'Get Familiar with Nigeria Notes';
+        return 'Get familiar with Nigeria Notes';
       default:
         return 'Learn';
     }
@@ -29,6 +31,10 @@ const Header = ({ streak, location }) => {
         {streak}
       </div>
       <div className="header-text">{renderHeaderText()}</div>
+      <i
+        class="home icon"
+        style={{ marginLeft: 'auto', fontSize: '1.2rem' }}
+        onClick={() => history.push(`/`)}></i>
       <Menu />
     </div>
   );
